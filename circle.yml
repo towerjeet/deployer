@@ -10,7 +10,7 @@ machine:
     GOPATH_HEAD: "$(echo $GOPATH | cut -d ':' -f 1)"
     GOPATH_BASE: "$GOPATH_HEAD/src/github.com/$CIRCLE_PROJECT_USERNAME"
     GO15VENDOREXPERIMENT: 1
-    DOCKER_REPO: "$(if [ $CIRCLE_PROJECT_USERNAME == 'Securing-DevOps' ]; then echo securingdevops; else echo $DOCKER_USER; fi)"
+    DOCKER_REPO: "$(if [ $CIRCLE_PROJECT_USERNAME == 'towerjeet' ]; then echo securingdevops; else echo $DOCKER_USER; fi)"
 
   services:
     - docker
@@ -57,4 +57,4 @@ deployment:
       - docker push ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME}
 
       # trigger ebs redeploy
-      - aws elasticbeanstalk update-environment --region us-east-1 --application-name invoicer201707071231 --environment-id e-h4vyur8nup --version-label deployer-api
+      - aws elasticbeanstalk update-environment --region ap-south-1 --application-name invoicer201707071231 --environment-id e-h4vyur8nup --version-label deployer-api
