@@ -93,7 +93,6 @@ func deploy() {
 		ApplicationName: aws.String("invoicer201707071231"),
 		EnvironmentId:   aws.String("e-y8ubep55hp"),
 		VersionLabel:    aws.String("invoicer-api"),
-		OptionSettings.member.1.OptionName = aws.String("IamInstanceProfile"),
 	}
 	resp, err := svc.UpdateEnvironment(params)
 
