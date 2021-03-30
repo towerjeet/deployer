@@ -86,13 +86,14 @@ func testAndDeploy() {
 func deploy() {
 	svc := elasticbeanstalk.New(
 		session.New(),
-		&aws.Config{Region: aws.String("us-east-1")},
+		&aws.Config{Region: aws.String("ap-south-1")},
 	)
 
 	params := &elasticbeanstalk.UpdateEnvironmentInput{
 		ApplicationName: aws.String("invoicer201707071231"),
 		EnvironmentId:   aws.String("e-y8ubep55hp"),
 		VersionLabel:    aws.String("invoicer-api"),
+		OptionSettings.member.1.OptionName = aws.String("IamInstanceProfile"),
 	}
 	resp, err := svc.UpdateEnvironment(params)
 
